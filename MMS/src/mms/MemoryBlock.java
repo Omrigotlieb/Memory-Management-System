@@ -10,7 +10,6 @@ public class MemoryBlock {
 	int baseAddress;
 	/** the length of this memory block, in words */
 	int length;
-
 	/**
 	 * Constructs a new memory block with a given base address and a given length in words 
 	 * 
@@ -20,8 +19,8 @@ public class MemoryBlock {
 	 *        the length of this memory block, in words
 	 */
 	public MemoryBlock(int baseAddress, int length) {
-	this.baseAddress = baseAddress;
-	this.length = length;
+		this.baseAddress = baseAddress;
+		this.length = length;
 	}
 
 	/**
@@ -32,14 +31,19 @@ public class MemoryBlock {
 	 * @return true if this block equals the other block, false otherwise
 	 */
 	public boolean equals(MemoryBlock other) {
-	return (baseAddress == other.baseAddress && length == other.length);
+		
+		// Checking base addresses and lengths.
+		if (this.baseAddress == other.baseAddress
+				&& this.length == other.length) {
+			return true;
+		}
+		return false;
 	}
-
+	
 	/**
 	 * A textual representation of this block, useful for debugging.
 	 */
-	public String toString() {
-	return "{" + baseAddress + ", " + length + "}";
+	public String toString() { 
+		return "(" + this.baseAddress + "," + this.length + ")";
 	}
-	
 }
